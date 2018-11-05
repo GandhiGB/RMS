@@ -1,0 +1,1 @@
+[27-Jun-2018 06:30:33 UTC] PHP Fatal error:  Call to undefined function vardump() in /home/southphilcollege/public_html/subdomains/sis/application/views/view-header.php on line 4
