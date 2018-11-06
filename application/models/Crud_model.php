@@ -14,5 +14,18 @@ class Crud_model extends CI_Model {
     $this->db->order_by('lname', 'ASC');
     return $this->db->get();
   }
+
+  function fetch_req($id){
+    $this->db->select("*");
+    $this->db->from("requirement");
+
+    if($id != '') {
+
+      $this->db->where('student_id', $id);
+
+    }
+
+    return $this->db->get();
+  }
 }
 ?>

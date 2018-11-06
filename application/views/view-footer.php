@@ -1,3 +1,9 @@
+			
+
+
+
+
+
 			<div class="modal fade" id="myModal" role="dialog">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
@@ -7,14 +13,14 @@
 					    </div>
 					     <div class="quick-search modal-body">
 					        <div class="form-group">
-    <div class="input-group">
-     <span class="input-group-addon">Search</span>
-     <input type="text" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
-    </div>
-   </div>
-						<div>
-							 <div class="col-xs-12 ">
+							    <div class="input-group">
+							     	<span class="input-group-addon">Search</span>
+							     	<input type="text" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
+							    </div>
+							</div>
 
+							<div>
+							 	<div class="col-xs-12 ">
                                 	<div class="row">
                                     	<div class="col-sm-12">
                                         	<div class="widget-box transparent">
@@ -70,6 +76,43 @@
 				</div>	      
 			</div>
 
+
+			<!--Modal for uploading photo-->
+			<div class="modal" id="myModal2"  tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 20px;">
+			    <div class="modal-dialog" >
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			          <h4 class="modal-title" id="upload-avatar-title">Requirements submitted</h4>
+			        </div>
+			        <div class="modal-body">
+			          <table class="table table-bordered table-striped">
+	                    	<thead class="thin-border-bottom">
+	                        	<tr>
+	                                <th>
+	                                    <i class="ace-icon fa fa-caret-right blue"></i> #
+	                                </th>
+	                                <th>
+	                                    <i class="ace-icon fa fa-caret-right blue"></i> Requirement
+	                                </th>
+	                        	</tr>
+	                    	</thead>
+
+	                        <tbody id="result2">
+	                        
+	                        </tbody>
+	                	</table>
+			        </div>
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			</div>
+
+
+
+
+
+
+			
 			<div class="footer">
 				<div class="footer-inner">
 					<div class="footer-content">
@@ -121,8 +164,8 @@
 
 
 		<script>
-			$(document).ready(function(){
 
+			$(document).ready(function(){
 
 				function load_data(query = '') {
 				
@@ -136,7 +179,7 @@
 				    });
 				}
 
-				$('#search_text').keypress(function(event){
+				$('#search_text').keypress(function(event) {
 	
 					var keycode = (event.keyCode ? event.keyCode : event.which);
 					if(keycode == '13'){
@@ -146,19 +189,28 @@
 
 				});
 
+				$('#myModal').on('shown.bs.modal', function () {
+				    $('#search_text').focus();
+				})
+
+
+				$('body, html').on('click','.view-req', function() {
+
+					$.ajax({
+			        type: "POST",
+			        data:{id:$(this).attr('id')},
+			        url: "<?php echo base_url(); ?>" + "crud/view_req",
+			        success: function(data) {
+			            $('#result2').html(data);
+			        }
+
+					    
+					});
+
+				    
+				});
+ 
 			});
-
-		// $("#show").click(function() {
-
-		//     $.ajax({
-		//         type: "POST",
-		//         data: {search: $('input#search').val(), field: $('select#selector').val()},
-		//         url: "<?php echo base_url(); ?>" + "crud/search",
-		//         success: function(data) {
-		//             $("#result").html(data);
-		//         }
-		//     	});
-		// });
 	
 		</script>
 		

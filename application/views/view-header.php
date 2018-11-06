@@ -170,7 +170,7 @@ $name = ucwords($session_data['first_name']) . ' ' . ucwords($session_data['midd
 						</button>
 
 						<button class="btn btn-warning">
-							<i class="ace-icon fa fa-cog"></i>
+							<i class="ace-icon fa fa-book"></i>
 						</button>
 						<a class="ace-icon fa fa-power-off btn btn-danger" href="<?php echo site_url()?>logout"></a>
 						
@@ -186,7 +186,6 @@ $name = ucwords($session_data['first_name']) . ' ' . ucwords($session_data['midd
 						<span class="btn btn-danger"></span>
 					</div>
 				</div><!-- /.sidebar-shortcuts -->
-
 
 				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
 					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
