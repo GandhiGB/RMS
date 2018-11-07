@@ -9,7 +9,7 @@ $name = ucwords($session_data['first_name']) . ' ' . ucwords($session_data['midd
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>SPC - 	LIS</title>
+		<title>SPC - RMS</title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -86,6 +86,34 @@ $name = ucwords($session_data['first_name']) . ' ' . ucwords($session_data['midd
 			}
 		</script>
 
+		<style>
+			.input-group-addon.primary {
+			    color: rgb(255, 255, 255);
+			    background-color: rgb(50, 118, 177);
+			    border-color: rgb(40, 94, 142);
+			}
+			.input-group-addon.success {
+			    color: rgb(255, 255, 255);
+			    background-color: #87B87F;
+			    border-color: #87B87F;
+			}
+			.input-group-addon.info {
+			    color: rgb(255, 255, 255);
+			    background-color: rgb(57, 179, 215);
+			    border-color: rgb(38, 154, 188);
+			}
+			.input-group-addon.warning {
+			    color: rgb(255, 255, 255);
+			    background-color: rgb(240, 173, 78);
+			    border-color: rgb(238, 162, 54);
+			}
+			.input-group-addon.danger {
+			    color: rgb(255, 255, 255);
+			    background-color: rgb(217, 83, 79);
+			    border-color: rgb(212, 63, 58);
+			}
+		</style>
+
 	</head>
 
 	<body onload="startTime()" class="skin-1">
@@ -140,7 +168,7 @@ $name = ucwords($session_data['first_name']) . ' ' . ucwords($session_data['midd
 					
 					<div class="company-name">
 						<h1>SOUTHERN PHILIPPINES COLLEGE</h1>
-						<h3>Learner Information System</h3>
+						<h3>Requirements Management System</h3>
 					</div>
 
 
@@ -164,8 +192,8 @@ $name = ucwords($session_data['first_name']) . ' ' . ucwords($session_data['midd
 							<i class="ace-icon fa fa-search"></i>
 						</button>
 
-						<button class="btn btn-info">
-							<i class="ace-icon fa fa-user"></i>
+						<button class="btn btn-info" data-toggle="modal" data-target="#myModal3" data-toggle="tooltip" title="Add Course">
+							<i class="ace-icon fa fa-plus-square"></i>
 
 						</button>
 
@@ -186,6 +214,37 @@ $name = ucwords($session_data['first_name']) . ' ' . ucwords($session_data['midd
 						<span class="btn btn-danger"></span>
 					</div>
 				</div><!-- /.sidebar-shortcuts -->
+
+				<ul class="nav nav-list">
+
+					<?php 
+
+						foreach ($course as $key => $value) {
+
+							echo '
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-book"></i>
+									<span class="menu-text">' .strtoupper($value->name). '</span>
+									<b class="arrow fa fa-angle-down"></b>
+								</a> 
+								<b class="arrow"></b>
+								<ul class="submenu">
+									<li class="">
+										<a href="'.base_url().'course/view'.$value->id.'">
+											<i class="menu-icon fa fa-caret-right"></i>Add Student
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+								</ul>
+							</li>
+						';
+							
+						}
+						
+					?>
+				</ul>
 
 				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
 					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
