@@ -20,20 +20,23 @@ function search(){
     $data = $this->crud_model->fetch_data($query);
 
     if($data->num_rows() > 0) {
-      foreach($data->result() as $row) {
+      foreach($data->result() as $key => $row) {
         $output .= '
                   <tr>
+                  <td>'.($key+1).'</td>;
                   <td style ="vertical-align:middle;">'.ucwords($row->lname).'</td>
                     <td style ="vertical-align:middle;">'.ucwords($row->fname).'</td>
                     <td style ="vertical-align:middle;">'.ucwords($row->mname).'</td>
-                    <td><button class="view-req btn btn-success" .modal-sm" data-toggle="modal" data-target="#myModal2" data-toggle="tooltip" title="View requirements submitted" id='.$row->id.'>view</button></td>
+                    <td style ="vertical-align:middle;">'.strtoupper($row->course).'</td>
+                    <td><button class="view-req btn btn-success" .modal-sm" data-toggle="modal" data-target="#modal-view-req" data-toggle="tooltip" title="View requirements submitted" id='.$row->id.'><i class="ace-icon fa fa-eye"></i></button>
+                                  <button class="view-req btn btn-primary" .modal-sm" data-toggle="modal" data-target="#modal-student-update" data-toggle="tooltip" title="Update student" id='.$row->id.'><i class="ace-icon fa fa-edit"></i></button></td>
                   </tr>
                   ';
       }
     }
     else {
     $output .= '<tr>
-              <td colspan="5">No Data Found</td>
+              <td class="center" colspan="7">No Data Found</td>
               </tr>';
     }
   }
@@ -41,7 +44,7 @@ function search(){
   else {
 
     $output .= '<tr>
-              <td class="center" colspan="5">No Data Found</td>
+              <td class="center" colspan="7">No Data Found</td>
               </tr>';
   }
 

@@ -1,81 +1,20 @@
-			
-
-			<!--Modal for quick searching-->
-
-			<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog modal-lg">
-					<div class="modal-content">
-					    <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal">&times;</button>
-					        <h4 class="modal-title">Quick Student Search</h4>
-					    </div>
-					     <div class="quick-search modal-body">
-					        <div class="form-group">
-							    <div class="input-group">
-							     	<span class="input-group-addon success">Search</span>
-							     	<input type="text" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
-							    </div>
-							</div>
-
-							<div>
-							 	<div class="col-xs-12 ">
-                                	<div class="row">
-                                    	<div class="col-sm-12">
-                                        	<div class="widget-box transparent">
-                                            	<div class="widget-header widget-header-flat">
-                                                	<h4 class="widget-title lighter">
-                                                    	<i class="ace-icon fa fa-star orange"></i>
-                                                    	Search Result
-                                                	</h4>
-
-	                                                <div class="widget-toolbar">
-	                                                    <a href="#" data-action="collapse">
-	                                                        <i class="ace-icon fa fa-chevron-up"></i>
-	                                                    </a>
-	                                                </div>
-                                            	</div>
-
-                                            	<div class="widget-body">
-                                                	<div class="widget-main no-padding">
-                                                    	<table class="table table-bordered table-striped">
-                                                        	<thead class="thin-border-bottom">
-                                                            	<tr>
-	                                                                <th>
-	                                                                    <i class="ace-icon fa fa-caret-right blue"></i> Lastname
-	                                                                </th>
-
-	                                                                <th>
-	                                                                    <i class="ace-icon fa fa-caret-right blue"></i> Firstname
-	                                                                </th>
-	                                                                <th>
-	                                                                    <i class="ace-icon fa fa-caret-right blue"></i> Middlename
-	                                                                </th>
-
-	                                                                <th>
-	                                                                    <i class="ace-icon fa fa-caret-right blue"></i> Action
-	                                                                </th>
-                                                            	</tr>
-                                                        	</thead>
-
-	                                                        <tbody id="result">
-	                                                            
-	                                                        </tbody>
-                                                    	</table>
-                                                	</div><!-- /.widget-main -->
-                                            	</div><!-- /.widget-body -->
-                                        	</div><!-- /.widget-box -->
-                                    	</div><!-- /.col -->
-                                	</div><!-- /.row -->
-                                <!-- PAGE CONTENT ENDS -->
-                            	</div><!-- /.col -->
-                       		</div>
-						</div>
-					</div>
-				</div>	      
+			<!--Modal student updating-->
+			<div class="modal" id="modal-student-add"  tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 20px;">
+			    <div class="modal-dialog" >
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			          <h4 class="modal-title" id="upload-avatar-title">Add student</h4>
+			        </div>
+			        <div class="modal-body">
+			          
+			        </div>
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
 			</div>
 
 			<!--Modal viewing requirements-->
-			<div class="modal" id="myModal2"  tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 20px;">
+			<div class="modal" id="modal-view-req"  tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 20px;">
 			    <div class="modal-dialog" >
 			      <div class="modal-content">
 			        <div class="modal-header">
@@ -95,7 +34,7 @@
 	                        	</tr>
 	                    	</thead>
 
-	                        <tbody id="result2">
+	                        <tbody id="result-view-req">
 	                        
 	                        </tbody>
 	                	</table>
@@ -104,33 +43,23 @@
 			    </div><!-- /.modal-dialog -->
 			</div>
 
-			
-			<!--Modal for adding course-->
-			<div class="modal" id="myModal3"  tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 20px;">
+
+			<!--Modal student updating-->
+			<div class="modal" id="modal-student-update"  tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 20px;">
 			    <div class="modal-dialog" >
 			      <div class="modal-content">
 			        <div class="modal-header">
 			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			          <h4 class="modal-title" id="upload-avatar-title">Adding Course</h4>
+			          <h4 class="modal-title" id="upload-avatar-title">Update student</h4>
 			        </div>
 			        <div class="modal-body">
-			        	<form method="post" id="insert_form">
-							<label>Course Short Name</label>
-							<input type="text" name="lname" id="cname" class="form-control" />
-							<br />
-							<label>Course Full Name</label>
-							<input type="text" name="fname" id="cfname" class="form-control" />
-							<br /> 
-							<input type="submit" name="add-course" id="add-course" value="Add" class="btn btn-primary" />
-
-						</form>
+			          
 			        </div>
 			      </div><!-- /.modal-content -->
 			    </div><!-- /.modal-dialog -->
 			</div>
 
-
-
+			
 			<div class="footer">
 				<div class="footer-inner">
 					<div class="footer-content">
@@ -205,6 +134,7 @@
 				        }
 				    });
 				}
+				
 
 				$('#search_text').keypress(function(event) {
 	
@@ -216,10 +146,6 @@
 
 				});
 
-				$('#myModal').on('shown.bs.modal', function () {
-				    $('#search_text').focus();
-				})
-
 
 				$('body, html').on('click','.view-req', function() {
 
@@ -228,7 +154,7 @@
 			        data:{id:$(this).attr('id')},
 			        url: "<?php echo base_url(); ?>" + "crud/view_req",
 			        success: function(data) {
-			            $('#result2').html(data);
+			            $('#result-view-req').html(data);
 			        }
 
 					    

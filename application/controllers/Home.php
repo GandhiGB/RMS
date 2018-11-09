@@ -7,12 +7,12 @@ class Home extends CI_Controller {
 
 		if (isset($this->session->userdata['spc_rms'])) {
 
-			$this->load->model("Course_model");			
+			$this->load->model('student_model');
 
-			$data["course"]=$this->Course_model->get_course();
+			$data['students'] = $this->student_model->get_students();
 
-			$this->load->view('view-header', $data);
-			$this->load->view('view-home');
+			$this->load->view('view-header');
+			$this->load->view('view-home', $data);
 			$this->load->view('view-footer');
 		} 
 
@@ -20,4 +20,7 @@ class Home extends CI_Controller {
 			redirect('login', 'refresh');
 		}	
 	}
+
+
+
 }
