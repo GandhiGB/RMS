@@ -165,7 +165,7 @@ $name = ucwords($session_data['first_name']) . ' ' . ucwords($session_data['midd
 			<div class="header-2">
 				<div class="container">
 
-					<img class="company-logo" src="<?php echo base_url();?>assets/images/global/logo.png">
+					<a href="<?php echo base_url()?>"><img class="company-logo" src="<?php echo base_url();?>assets/images/global/logo.png"></a>
 					
 					<div class="company-name">
 						<h1>SOUTHERN PHILIPPINES COLLEGE</h1>
@@ -192,7 +192,6 @@ $name = ucwords($session_data['first_name']) . ' ' . ucwords($session_data['midd
 
 						<button class="btn btn-info" data-toggle="modal" data-target="#modal-student-add" data-toggle="tooltip" title="Add student">
 							<i class="ace-icon fa fa-plus-square"></i>
-
 						</button>
 
 						<button class="btn btn-success" title="No action">
