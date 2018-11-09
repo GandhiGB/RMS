@@ -64,7 +64,7 @@
 				<div class="footer-inner">
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Copyright &copy; 2018 - SPC Learner Information System Ver. 1.0</span>
+							<span class="blue bolder">Copyright &copy; 2018 - SPC Requirements System Ver. 1.0</span>
 						</span>
 
 						
